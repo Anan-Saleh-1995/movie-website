@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import type { Movie } from '../shared/types/movies';
-import { deleteMovie, insertMovie, selectWatchlist } from '../services/supabase';
-import { fetchMoviesByIds } from '../services/tmdb';
+import { deleteMovie, insertMovie, selectWatchlist } from '@/services/supabase';
+import { fetchMoviesByIds } from '@/services/tmdb';
+import type { Movie } from '@/shared/types/movies';
 
 export const useWatchlist = (userId: string) => {
   return useQuery<Movie[], Error>({

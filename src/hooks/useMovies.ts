@@ -1,6 +1,7 @@
 import { useQuery, type UseQueryResult } from '@tanstack/react-query';
-import type { MoviesResponse } from '../shared/types/movies';
-import { fetchKidsMovies, fetchPopularMovies, fetchPopularTv, fetchTopRated } from '../services/tmdb';
+import { fetchKidsMovies, fetchPopularMovies, fetchPopularTv, fetchTopRated } from '@/services/tmdb';
+import type { MoviesResponse } from '@/shared/types/movies';
+
 
 export const usePopularMovies = (): UseQueryResult<MoviesResponse, Error> => {
   return useQuery({
