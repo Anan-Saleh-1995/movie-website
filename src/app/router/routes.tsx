@@ -21,6 +21,11 @@ export const routes = [
     layout: UserLayout,
   },
   {
+    path: '/test',
+    element: HomePage,
+    layout: UserLayout,
+  },
+  {
     path: '/movies/:id',
     element: MovieContainer,
     layout: UserLayout,
