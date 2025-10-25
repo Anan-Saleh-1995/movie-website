@@ -1,5 +1,5 @@
 import { Credit } from '@/components/person/Credit';
-import type { CreditsResponse } from '@/shared/types/movies';
+import type { CreditsResponse } from '@/shared/types/person';
 import { Flex, Text } from '@mantine/core';
 
 type creditListPropType = {

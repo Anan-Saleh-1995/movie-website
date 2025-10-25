@@ -1,4 +1,4 @@
-import type { Credits as CreditType } from '@/shared/types/movies';
+import type { Credits as CreditType } from '@/shared/types/person';
 import { Flex, Image, Text } from '@mantine/core';
 
 const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';

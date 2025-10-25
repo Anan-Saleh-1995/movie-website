@@ -11,11 +11,11 @@ import {
   fetchTopRated
 } from '@/services/tmdb';
 import type {
-  CreditsResponse,
   Movie,
   MoviesResponse,
   videosResponse
 } from '@/shared/types/movies';
+import type { CreditsResponse } from '@/shared/types/person';
 
 
 export const usePopularMovies = (): UseQueryResult<MoviesResponse, Error> => {

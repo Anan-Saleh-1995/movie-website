@@ -1,10 +1,10 @@
 import axios from 'axios';
 import type {
-  CreditsResponse,
   Movie,
   MoviesResponse,
   videosResponse
 } from '@/shared/types/movies';
+import type { CreditsResponse } from '@/shared/types/person';
 
 
 const baseURL = import.meta.env.VITE_TMDB_API_URL;

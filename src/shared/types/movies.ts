@@ -39,17 +39,4 @@ export type videosResponse = {
   results: videos[];
 };
 
-export type Credits = {
-  id: number,
-  name: string,
-  profile_path: string,
-  character: string,
-};
-
-export type CreditsResponse = {
-  id: string;
-  cast: Credits[] ;
-  crew: Credits[];
-};
-
 export type MovieToWatch = typeof MOVIE_TO_WATCH[keyof typeof MOVIE_TO_WATCH];

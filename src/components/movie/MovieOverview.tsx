@@ -4,7 +4,8 @@ import ReactPlayer from 'react-player';
 import { MovieList } from '@/components/movie/MovieList';
 import { CreditList } from '@/components/person/CreditList';
 import { Details } from '@/components/movie/Details';
-import type { CreditsResponse, Movie, videosResponse } from '@/shared/types/movies';
+import type { Movie, videosResponse } from '@/shared/types/movies';
+import type { CreditsResponse } from '@/shared/types/person';
 
 type MovieOverviewProps = {
   movie: Movie | undefined;
