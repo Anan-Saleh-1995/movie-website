@@ -6,6 +6,7 @@ import { PersonCreditList } from '@/components/person/PersonCreditList';
 import { MovieDetails } from '@/components/movie/MovieDetails';
 import type { Movie, VideosResponse } from '@/shared/types/movies';
 import type { CreditsResponse } from '@/shared/types/person';
+import { isArrayAndNotEmpty } from '@/shared/utils';
 
 type MovieOverviewProps = {
   movie: Movie | undefined;
@@ -37,8 +38,12 @@ export const MovieOverview = ({ movie, credits, videos, recommended, similar }: 
         />
       </Flex>
       <Stack>
-        <MovieList movies={recommended} title="Recommended" />
-        <MovieList movies={similar} title="Similar" />
+        {
+          isArrayAndNotEmpty(recommended) ? <MovieList movies={recommended} title="Recommended" /> : <></>
+        }
+        {
+          isArrayAndNotEmpty(similar) ? <MovieList movies={similar} title="Similar" /> : <></>
+        }
       </Stack>
       <PersonCreditList credits={credits} />
       <MovieDetails movie={movie} />
