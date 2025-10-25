@@ -9,9 +9,10 @@ const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
 
 type MovieCardProps = {
   movie: Movie;
+  isShow: boolean;
 };
 
-export const MovieCard = ({ movie }: MovieCardProps): JSX.Element => {
+export const MovieCard = ({ movie, isShow }: MovieCardProps): JSX.Element => {
   const { hovered, ref } = useHover();
   return (
     <Card
@@ -19,6 +20,8 @@ export const MovieCard = ({ movie }: MovieCardProps): JSX.Element => {
       shadow={'lg'}
       radius={'lg'}
       ref={ref}
+      component="a"
+      href={isShow ? undefined : `/movies/${movie.id}`}
     >
       <Flex>
         <Image

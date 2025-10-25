@@ -13,6 +13,7 @@ type MovieListProps = {
 };
 
 export const MovieList = ({ title, movies } : MovieListProps): JSX.Element => {
+  const isShow = title.toLocaleLowerCase().includes('tv');
   return (
     <Flex direction={'column'}>
       <Flex wrap={'nowrap'} align="center" justify="flex-start" mb="md">
@@ -46,7 +47,7 @@ export const MovieList = ({ title, movies } : MovieListProps): JSX.Element => {
       >
         {movies?.map((movie) => (
           <Carousel.Slide w={180} maw={180} key={movie.id}>
-            <MovieCard movie={movie} />
+            <MovieCard movie={movie} isShow={isShow} />
           </Carousel.Slide>
         ))}
       </Carousel>

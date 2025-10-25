@@ -1,5 +1,10 @@
 import axios from 'axios';
-import type { Movie, MoviesResponse } from '../shared/types/movies';
+import type {
+  CreditsResponse,
+  Movie,
+  MoviesResponse,
+  videosResponse
+} from '@/shared/types/movies';
 
 
 const baseURL = import.meta.env.VITE_TMDB_API_URL;
@@ -35,7 +40,27 @@ export const fetchKidsMovies = async (): Promise<MoviesResponse> => {
   return data;
 };
 
-const fetchMovieById = async (movieId: number): Promise<Movie> => {
+export const fetchSimilarMovies = async (movieId?: number): Promise<MoviesResponse> => {
+  const { data } = await tmdbClient.get<MoviesResponse>(`/movie/${movieId}/similar`);
+  return data;
+};
+
+export const fetchRecommendedMovies = async (movieId?: number): Promise<MoviesResponse> => {
+  const { data } = await tmdbClient.get<MoviesResponse>(`/movie/${movieId}/recommendations`);
+  return data;
+};
+
+export const fetchMovieCredits = async (movieId?: number): Promise<CreditsResponse> => {
+  const { data } = await tmdbClient.get<CreditsResponse>(`/movie/${movieId}/credits`);
+  return data;
+};
+
+export const fetchMovieVideos = async (movieId?: number): Promise<videosResponse> => {
+  const { data } = await tmdbClient.get<videosResponse>(`/movie/${movieId}/videos`);
+  return data;
+};
+
+export const fetchMovieById = async (movieId?: number): Promise<Movie> => {
   const { data } = await tmdbClient.get<Movie>(`/movie/${movieId}`);
   return data;
 };
