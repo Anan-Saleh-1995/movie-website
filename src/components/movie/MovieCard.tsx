@@ -2,10 +2,10 @@ import { type JSX } from 'react';
 import { useHover } from '@mantine/hooks';
 import { Card, Image, Overlay, Flex } from '@mantine/core';
 import type { Movie } from '@/shared/types/movies';
+import { TMDB_IMAGE_BASE } from '@/shared/constants/tmdb';
 
 import './MovieCard.css';
 
-const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
 
 type MovieCardProps = {
   movie: Movie;

@@ -1,7 +1,6 @@
-import type { Credits as CreditType } from '@/shared/types/person';
 import { Flex, Image, Text } from '@mantine/core';
-
-const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
+import type { Credits as CreditType } from '@/shared/types/person';
+import { TMDB_IMAGE_BASE } from '@/shared/constants/tmdb';
 
 type creditPropsType = {
   cast: CreditType;
