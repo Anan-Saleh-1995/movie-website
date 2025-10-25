@@ -1,11 +1,19 @@
-import { createClient, type AuthResponse } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
+import type { User, Session, WeakPassword } from '@supabase/supabase-js';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
-export const signIn = async (email: string, password: string): Promise<AuthResponse> => {
+type AuthResult = {
+  user: User | null;
+  session: Session | null;
+  weakPassword?: WeakPassword;
+};
+
+
+export const signIn = async (email: string, password: string): Promise<AuthResult> => {
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -20,7 +28,7 @@ export const signOut = async (): Promise<boolean> => {
   return true;
 };
 
-export const signUp = async (email: string, password: string): Promise<AuthResponse> => {
+export const signUp = async (email: string, password: string): Promise<AuthResult> => {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
