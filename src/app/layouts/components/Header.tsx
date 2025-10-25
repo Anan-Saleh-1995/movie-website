@@ -7,6 +7,7 @@ import {
 } from '@mantine/core';
 import { signOut } from '@/services/supabase';
 import { useAuth } from '@/app/providers/useAuth';
+import { ThemeSwitch } from '@/components/common/ThemeSwitch';
 
 export const Header = () => {
   const { user } = useAuth();
@@ -45,12 +46,16 @@ export const Header = () => {
                 <Menu.Item component={Link} to="/me/profile">Profile</Menu.Item>
                 <Menu.Item component={Link} to="/me/watchlist">Watchlist</Menu.Item>
                 <Menu.Item onClick={() => signOut()}>Log out</Menu.Item>
+                <Divider />
               </Menu.Dropdown>
             </Menu>
           ) : (
-            <Anchor component={Link} to="/login" fw={700}>Login</Anchor>
+            <>
+              <Anchor component={Link} to="/login" fw={700}>Login</Anchor>
+            </>
           )}
           <Burger opened={opened} onClick={() => setOpened((o) => !o)} hiddenFrom="md" />
+          <ThemeSwitch />
         </Group>
       </Group>
 
@@ -64,6 +69,8 @@ export const Header = () => {
           <Anchor component={Link} to="/lists">Lists</Anchor>
           <Anchor component={Link} to="/collections">Collections</Anchor>
           <Anchor component={Link} to="/discover">Discover</Anchor>
+          <Divider />
+          <ThemeSwitch />
         </Stack>
       </Drawer>
     </Container>
