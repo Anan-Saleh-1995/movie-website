@@ -6,7 +6,7 @@ type creditPropsType = {
   cast: CreditType;
 };
 
-export const Credit = ({ cast }: creditPropsType) => {
+export const PersonCredit = ({ cast }: creditPropsType) => {
   const { profile_path: image, name, character } = cast;
   return (
     <Flex direction={'column'} w={150} align={'center'}>

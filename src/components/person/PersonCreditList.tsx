@@ -1,4 +1,4 @@
-import { Credit } from '@/components/person/Credit';
+import { PersonCredit } from '@/components/person/PersonCredit';
 import type { CreditsResponse } from '@/shared/types/person';
 import { Flex, Text } from '@mantine/core';
 
@@ -6,7 +6,7 @@ type creditListPropType = {
   credits: CreditsResponse | undefined;
 };
 
-export const CreditList = ({ credits }: creditListPropType) => {
+export const PersonCreditList = ({ credits }: creditListPropType) => {
   const cast = credits?.cast ?? [];
   const displayedCast = cast.slice(0, 8);
   return (
@@ -17,7 +17,7 @@ export const CreditList = ({ credits }: creditListPropType) => {
       <Flex justify={'space-between'}>
         {
           displayedCast.map((cast) => (
-            <Credit
+            <PersonCredit
               key={cast.id}
               cast={cast}
             />
