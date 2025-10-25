@@ -10,7 +10,7 @@ import '@mantine/core/styles.css';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryProvider>
-      <MantineProvider defaultColorScheme='auto'>
+      <MantineProvider defaultColorScheme='dark'>
         <AuthProvider>
           <Router />
         </AuthProvider>
