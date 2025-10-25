@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Center, Loader } from '@mantine/core';
 import { useMovieById, useMovieCredits, useMovieVideos, useRecommendedMovies, useSimilarMovies } from '@/hooks/useMovies';
-import { MovieOverview } from '@/components/movie/MovieOverView';
+import { MovieOverview } from '@/components/movie/MovieOverview';
 
 export const MovieContainer = () => {
   const { id } = useParams<{ id: string }>();
