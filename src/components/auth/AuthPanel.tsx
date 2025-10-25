@@ -44,7 +44,6 @@ export const AuthPanel = () => {
         mt={150}
         m={15}
         p={35}
-        bg={'dark'}
         radius={'lg'}
         shadow="lg"
         withBorder
@@ -80,12 +79,12 @@ export const AuthPanel = () => {
             />
           </Stack>
           <Group justify="space-between" mt="xl">
-            <Anchor component="button" type="button" c="dimmed" onClick={() => toggle()} size="xs">
+            <Anchor component="button" type="button" onClick={() => toggle()} size="xs">
               {type === 'register'
                 ? 'Already have an account? Login'
                 : 'Don\'t have an account? Register'}
             </Anchor>
-            <Button bg={'yellow'} onClick={handleFormSubmit} type="submit" radius="xl">
+            <Button onClick={handleFormSubmit} type="submit" radius="xl">
               {upperFirst(type)}
             </Button>
           </Group>
