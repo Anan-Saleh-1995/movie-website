@@ -4,7 +4,7 @@ export type Movie = {
   adult: boolean;
   backdrop_path: string | null;
   genre_ids: number[];
-  genres: [{ id: number, name: string }]
+  genres: Array<{ id: number; name: string }>
   id: number;
   original_language: string;
   original_title: string;
@@ -29,14 +29,16 @@ export type MoviesResponse = {
   total_results: number;
 };
 
-export type videos = {
+type VideoType = 'Trailer' | 'Teaser' | 'Clip';
+
+export type Videos = {
   key: string;
-  type: string;
+  type: VideoType;
 };
 
-export type videosResponse = {
+export type VideosResponse = {
   id: number;
-  results: videos[];
+  results: Videos[];
 };
 
 export type MovieToWatch = typeof MOVIE_TO_WATCH[keyof typeof MOVIE_TO_WATCH];

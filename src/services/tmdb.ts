@@ -2,7 +2,7 @@ import axios from 'axios';
 import type {
   Movie,
   MoviesResponse,
-  videosResponse
+  VideosResponse
 } from '@/shared/types/movies';
 import type { CreditsResponse } from '@/shared/types/person';
 
@@ -55,8 +55,8 @@ export const fetchMovieCredits = async (movieId?: number): Promise<CreditsRespon
   return data;
 };
 
-export const fetchMovieVideos = async (movieId?: number): Promise<videosResponse> => {
-  const { data } = await tmdbClient.get<videosResponse>(`/movie/${movieId}/videos`);
+export const fetchMovieVideos = async (movieId?: number): Promise<VideosResponse> => {
+  const { data } = await tmdbClient.get<VideosResponse>(`/movie/${movieId}/videos`);
   return data;
 };
 

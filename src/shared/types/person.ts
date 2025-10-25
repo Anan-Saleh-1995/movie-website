@@ -6,7 +6,7 @@ export type Credits = {
 };
 
 export type CreditsResponse = {
-  id: string;
+  id: number;
   cast: Credits[] ;
   crew: Credits[];
 };

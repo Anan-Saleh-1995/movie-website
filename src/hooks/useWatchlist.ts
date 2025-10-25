@@ -5,7 +5,7 @@ import type { Movie } from '@/shared/types/movies';
 
 export const useWatchlist = (userId: string) => {
   return useQuery<Movie[], Error>({
-    queryKey: ['userWatchlist', userId],
+    queryKey: ['userWatchlist', userId] as const,
     queryFn: async () => {
       const ids = await selectWatchlist(userId);
       if (!ids || ids.length === 0) return [];
@@ -20,9 +20,9 @@ export const useAddToWatchlist = (userId: string) => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (movieId: string) => insertMovie(userId, movieId),
+    mutationFn: (movieId: number) => insertMovie(userId, movieId),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['userWatchlist', userId] });
+      queryClient.invalidateQueries({ queryKey: ['userWatchlist', userId] as const });
     },
   });
 };
@@ -31,9 +31,9 @@ export const useRemoveFromWatchlist = (userId: string) => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (movieId: string) => deleteMovie(userId, movieId),
+    mutationFn: (movieId: number) => deleteMovie(userId, movieId),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['userWatchlist', userId] });
+      queryClient.invalidateQueries({ queryKey: ['userWatchlist', userId] as const });
     },
   });
 };

@@ -13,7 +13,7 @@ import {
 import type {
   Movie,
   MoviesResponse,
-  videosResponse
+  VideosResponse
 } from '@/shared/types/movies';
 import type { CreditsResponse } from '@/shared/types/person';
 
@@ -55,7 +55,7 @@ export const useSimilarMovies = (id?: number): UseQueryResult<MoviesResponse, Er
     queryKey: ['similarMovies', id] as const,
     queryFn: ({ queryKey }) => {
       const [, movieId] = queryKey;
-      return fetchSimilarMovies(movieId);
+      return fetchSimilarMovies(movieId!);
     },
     enabled: !!id,
     staleTime: 1000 * 60 * 5,
@@ -67,7 +67,7 @@ export const useRecommendedMovies = (id?: number): UseQueryResult<MoviesResponse
     queryKey: ['recommednedMovies', id] as const,
     queryFn: ({ queryKey }) => {
       const [, movieId] = queryKey;
-      return fetchRecommendedMovies(movieId);
+      return fetchRecommendedMovies(movieId!);
     },
     enabled: !!id,
     staleTime: 1000 * 60 * 5,
@@ -79,19 +79,19 @@ export const useMovieCredits = (id?: number): UseQueryResult<CreditsResponse, Er
     queryKey: ['movieCredits', id] as const,
     queryFn: ({ queryKey }) => {
       const [, movieId] = queryKey;
-      return fetchMovieCredits(movieId);
+      return fetchMovieCredits(movieId!);
     },
     enabled: !!id,
     staleTime: 1000 * 60 * 5,
   });
 };
 
-export const useMovieVideos = (id?: number): UseQueryResult<videosResponse, Error> => {
+export const useMovieVideos = (id?: number): UseQueryResult<VideosResponse, Error> => {
   return useQuery({
     queryKey: ['movieVideos', id] as const,
     queryFn: ({ queryKey }) => {
       const [, movieId] = queryKey;
-      return fetchMovieVideos(movieId);
+      return fetchMovieVideos(movieId!);
     },
     enabled: !!id,
     staleTime: 1000 * 60 * 5,
@@ -103,7 +103,7 @@ export const useMovieById = (id?: number): UseQueryResult<Movie, Error> => {
     queryKey: ['movieById', id] as const,
     queryFn: ({ queryKey }) => {
       const [, movieId] = queryKey;
-      return fetchMovieById(movieId);
+      return fetchMovieById(movieId!);
     },
     enabled: !!id,
     staleTime: 1000 * 60 * 5,
