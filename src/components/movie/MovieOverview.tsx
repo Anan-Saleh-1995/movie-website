@@ -3,7 +3,7 @@ import { Flex, Stack } from '@mantine/core';
 import ReactPlayer from 'react-player';
 import { MovieList } from '@/components/movie/MovieList';
 import { CreditList } from '@/components/person/CreditList';
-import { Details } from '@/components/movie/Details';
+import { MovieDetails } from '@/components/movie/MovieDetails';
 import type { Movie, VideosResponse } from '@/shared/types/movies';
 import type { CreditsResponse } from '@/shared/types/person';
 
@@ -41,7 +41,7 @@ export const MovieOverview = ({ movie, credits, videos, recommended, similar }: 
         <MovieList movies={similar} title="Similar" />
       </Stack>
       <CreditList credits={credits} />
-      <Details movie={movie} />
+      <MovieDetails movie={movie} />
     </Flex>
   );
 };

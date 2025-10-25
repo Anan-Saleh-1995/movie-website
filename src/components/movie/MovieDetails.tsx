@@ -5,7 +5,7 @@ type detailsProps = {
   movie: Movie | undefined;
 };
 
-export const Details = ({ movie }: detailsProps) => {
+export const MovieDetails = ({ movie }: detailsProps) => {
   return (
     <Grid gutter="xl">
       <Grid.Col span={12}>
